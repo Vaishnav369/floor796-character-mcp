@@ -1,6 +1,6 @@
 {
   "name": "floor796-character-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for extracting reusable Floor796 character and animation kits.",
   "type": "module",
   "license": "MIT",

@@ -1,5 +1,11 @@
 # Release Notes
 
+## v0.1.1
+
+### Added
+
+- `list_floor796_characters` MCP tool for paginated discovery of reusable kits and named site characters before searching or fetching details.
+
 ## v0.1.0
 
 Initial public release of `floor796-character-mcp`.
