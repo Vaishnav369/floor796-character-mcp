@@ -26,6 +26,7 @@ Completed so far:
 - Published `floor796-character-mcp@0.1.0` to npm.
 - Added `list_floor796_characters` for paginated catalog discovery.
 - Prepared local `v0.1.1` package metadata and release notes.
+- Tagged `v0.1.1` and pushed `main` plus the tag to GitHub.
 
 ## Stage 1 - Local Prototype
 
@@ -161,7 +162,7 @@ Tasks:
 
 ## Stage 10 - v0.1.1 Patch Release
 
-Status: Ready to release
+Status: Blocked on npm OTP authentication
 
 Tasks:
 
@@ -173,10 +174,11 @@ Tasks:
 - [x] Add `v0.1.1` release notes.
 - [x] Verify `npm test` passes.
 - [x] Verify `npm pack --dry-run` passes.
-- [ ] Tag `v0.1.1`.
-- [ ] Push `main` and `v0.1.1` to GitHub.
+- [x] Tag `v0.1.1`.
+- [x] Push `main` and `v0.1.1` to GitHub.
 - [ ] Publish `floor796-character-mcp@0.1.1` to npm.
 - [ ] Verify npm shows version `0.1.1`.
+- [ ] Complete npm OTP authentication for publish.
 
 ## Stage 9 - Future Improvements
 
@@ -194,4 +196,4 @@ Tasks:
 
 ## Immediate Next Step
 
-Tag `v0.1.1`, push `main` and the tag, publish `floor796-character-mcp@0.1.1`, then verify npm reports `0.1.1`.
+Complete npm OTP authentication, publish `floor796-character-mcp@0.1.1`, then verify npm reports `0.1.1`.
