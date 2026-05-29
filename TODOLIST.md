@@ -21,6 +21,7 @@ Completed so far:
 - Confirmed `npm test` and `npm pack --dry-run` pass.
 - Added GitHub Actions CI for install, test, and package dry-run.
 - Initialized local git repository and confirmed large local Floor796 files are ignored.
+- Created GitHub repository and pushed `main`.
 
 ## Stage 1 - Local Prototype
 
@@ -71,7 +72,7 @@ Tasks:
 - [x] Confirm `.npmignore` is not needed because package `files` controls published contents.
 - [x] Confirm `floor796.html` is excluded from npm package.
 - [x] Confirm `assets/` is excluded from npm package.
-- [ ] Confirm repository URL after GitHub repo is created.
+- [x] Confirm repository URL after GitHub repo is created.
 
 ## Stage 4 - CLI Improvements
 
@@ -134,8 +135,8 @@ Tasks:
 - [x] Ensure no large generated files are tracked.
 - [x] Add LICENSE.
 - [x] Add GitHub Actions workflow.
-- [ ] Push to GitHub.
-- [ ] Add repository description.
+- [x] Push to GitHub.
+- [x] Add repository description.
 - [ ] Add release notes.
 - [ ] Tag `v0.1.0`.
 
@@ -169,4 +170,4 @@ Tasks:
 
 ## Immediate Next Step
 
-Create the initial commit, then add the GitHub remote when the repository URL is confirmed.
+Add release notes, then tag `v0.1.0` when ready.
