@@ -84,6 +84,7 @@ Prompt OpenCode with `use floor796-character-mcp` when you want it to search or 
 ## MCP Tools
 
 - `search_floor796_characters`: find reusable character/animation kits by name or description.
+- `list_floor796_characters`: browse paginated reusable kits and named site characters without a search keyword.
 - `get_floor796_site_character`: return a named site character from `changelog.json`, including reference image/link, coordinates, matching scene assets, and reuse guidance.
 - `get_floor796_character_kit`: return assets, metadata, and web integration guidance for a kit.
 - `list_floor796_animation_modules`: list all interactive modules.
@@ -108,6 +109,12 @@ Serve the Naruto sprite sheet for direct website reuse:
 
 ```text
 Use floor796-character-mcp to serve the asset "interactive/naruto/sprites.png".
+```
+
+Browse available kits before choosing one:
+
+```text
+Use floor796-character-mcp to list Floor796 character kits with limit 25.
 ```
 
 ## Reuse Notes

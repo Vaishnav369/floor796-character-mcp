@@ -10,6 +10,7 @@ import {
   findSiteCharacters,
   getAssetsDir,
   integrationGuide,
+  listCharacterSummaries,
   loadAssetIndex,
   normalizeAssetPath,
   siteCharacterIntegrationGuide,
@@ -22,6 +23,28 @@ const server = new McpServer({
   name: "floor796-character-mcp",
   version: "0.1.0",
 });
+
+server.registerTool(
+  "list_floor796_characters",
+  {
+    title: "List Floor796 Characters",
+    description:
+      "Browse available reusable Floor796 character kits and named site characters without needing a search keyword. Use this for discovery before choosing get_floor796_character_kit or get_floor796_site_character.",
+    inputSchema: {
+      include: z.enum(["all", "kits", "siteCharacters"]).default("all"),
+      limit: z.number().int().positive().max(100).default(25),
+      offset: z.number().int().nonnegative().default(0),
+    },
+  },
+  async ({ include, limit, offset }) => ({
+    content: [
+      {
+        type: "text",
+        text: JSON.stringify(listCharacterSummaries(index, { include, limit, offset }), null, 2),
+      },
+    ],
+  }),
+);
 
 server.registerTool(
   "search_floor796_characters",

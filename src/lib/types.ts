@@ -34,6 +34,48 @@ export interface CharacterKit {
   usageNotes: string[];
 }
 
+export type CharacterListInclude = "all" | "kits" | "siteCharacters";
+
+export interface CharacterKitSummary {
+  id: string;
+  title: string;
+  summary: string;
+  aliases: string[];
+  confidence: CharacterKit["confidence"];
+  module?: string;
+  assetCount: number;
+  imageCount: number;
+  audioCount: number;
+  sceneCount: number;
+  nextTool: string;
+}
+
+export interface SiteCharacterSummary {
+  id: number;
+  title: string;
+  date: string;
+  animated: boolean;
+  cells: string[];
+  link: string;
+  hasReferenceAsset: boolean;
+  module?: string;
+  sceneAssetCount: number;
+  nextTool: string;
+}
+
+export interface PaginatedList<T> {
+  total: number;
+  offset: number;
+  limit: number;
+  nextOffset?: number;
+  items: T[];
+}
+
+export interface CharacterSummaryList {
+  reusableKits?: PaginatedList<CharacterKitSummary>;
+  siteCharacters?: PaginatedList<SiteCharacterSummary>;
+}
+
 export interface SiteCharacter {
   id: number;
   title: string;

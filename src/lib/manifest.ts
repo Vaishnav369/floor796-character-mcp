@@ -2,7 +2,19 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { extname } from "node:path";
-import type { AssetIndex, AssetKind, AssetRecord, CharacterKit, InteractiveModule, SiteCharacter } from "./types.js";
+import type {
+  AssetIndex,
+  AssetKind,
+  AssetRecord,
+  CharacterListInclude,
+  CharacterSummaryList,
+  CharacterKit,
+  CharacterKitSummary,
+  InteractiveModule,
+  PaginatedList,
+  SiteCharacter,
+  SiteCharacterSummary,
+} from "./types.js";
 
 const CURATED_ALIASES: Record<string, { title: string; aliases: string[]; summary: string }> = {
   naruto: {
@@ -183,6 +195,28 @@ export function findCharacterKits(index: AssetIndex, query?: string): CharacterK
   return kits;
 }
 
+export function listCharacterSummaries(
+  index: AssetIndex,
+  options: { include?: CharacterListInclude; limit?: number; offset?: number } = {},
+): CharacterSummaryList {
+  const include = options.include ?? "all";
+  const limit = clampListLimit(options.limit);
+  const offset = Math.max(0, options.offset ?? 0);
+  const summary: CharacterSummaryList = {};
+
+  if (include === "all" || include === "kits") {
+    const kits = findCharacterKits(index).sort((a, b) => a.id.localeCompare(b.id));
+    summary.reusableKits = paginate(kits.map(toCharacterKitSummary), limit, offset);
+  }
+
+  if (include === "all" || include === "siteCharacters") {
+    const siteCharacters = findSiteCharacters(index);
+    summary.siteCharacters = paginate(siteCharacters.map(toSiteCharacterSummary), limit, offset);
+  }
+
+  return summary;
+}
+
 export function assetsForModule(index: AssetIndex, moduleName: string): AssetRecord[] {
   return index.assets.filter((asset) => asset.module === moduleName).sort((a, b) => a.cleanPath.localeCompare(b.cleanPath));
 }
@@ -295,13 +329,59 @@ function linkToCleanPath(link: string): string | undefined {
 }
 
 function usageNotesForModule(module: InteractiveModule): string[] {
-  const notes = ["Use serve_character_asset to retrieve each file as base64 for the downstream web builder."];
+  const notes = ["Use serve_floor796_character_asset to retrieve each file as base64 for the downstream web builder."];
   if (module.renderScript) notes.push("render.js is the best source for original animation behavior.");
   if (module.playerScript) notes.push("player.js contains reusable playback/controller behavior.");
   if (module.images.length > 0) notes.push("Image assets are the easiest assets to embed directly in another website.");
   if (module.audio.length > 0) notes.push("Audio assets can be connected to UI or animation triggers.");
   if (module.sceneFiles.length > 0) notes.push(".f796.br scene assets need the Floor796 renderer or a converter before direct visual reuse.");
   return notes;
+}
+
+function toCharacterKitSummary(kit: CharacterKit): CharacterKitSummary {
+  return {
+    id: kit.id,
+    title: kit.title,
+    summary: kit.summary,
+    aliases: kit.aliases,
+    confidence: kit.confidence,
+    module: kit.module,
+    assetCount: kit.assets.length,
+    imageCount: kit.assets.filter((asset) => asset.kind === "image").length,
+    audioCount: kit.assets.filter((asset) => asset.kind === "audio").length,
+    sceneCount: kit.assets.filter((asset) => asset.kind === "scene").length,
+    nextTool: `get_floor796_character_kit id=${kit.id}`,
+  };
+}
+
+function toSiteCharacterSummary(character: SiteCharacter): SiteCharacterSummary {
+  return {
+    id: character.id,
+    title: character.title,
+    date: character.date,
+    animated: character.animated,
+    cells: character.cells,
+    link: character.link,
+    hasReferenceAsset: Boolean(character.referenceAsset),
+    module: character.module?.name,
+    sceneAssetCount: character.sceneAssets.length,
+    nextTool: `get_floor796_site_character id=${character.id}`,
+  };
+}
+
+function paginate<T>(items: T[], limit: number, offset: number): PaginatedList<T> {
+  const nextOffset = offset + limit < items.length ? offset + limit : undefined;
+  return {
+    total: items.length,
+    offset,
+    limit,
+    nextOffset,
+    items: items.slice(offset, offset + limit),
+  };
+}
+
+function clampListLimit(limit = 25): number {
+  return Math.min(100, Math.max(1, Math.trunc(limit)));
 }
 
 function titleCase(value: string): string {
