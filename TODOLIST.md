@@ -2,7 +2,7 @@
 
 ## Current Stage
 
-We are at: Stage 10 - v0.1.1 patch release.
+We are at: Stage 11 - npm account security follow-up.
 
 Completed so far:
 
@@ -195,6 +195,16 @@ Tasks:
 - [ ] Add more curated aliases for popular characters.
 - [ ] Add MCP resource templates for character catalog browsing.
 
+## Stage 11 - npm Account Security Follow-up
+
+Status: Waiting on account owner
+
+Tasks:
+
+- [ ] Regenerate npm recovery codes because one recovery code was pasted into this session and used during publish.
+- [ ] Confirm old npm recovery codes are revoked or replaced.
+- [ ] After confirmation, update this todo list and continue with Stage 9 future improvements.
+
 ## Immediate Next Step
 
-Regenerate npm recovery codes because one was used during the `v0.1.1` publish, then continue with Stage 9 future improvements.
+Regenerate npm recovery codes in the npm account security settings, then confirm the old codes are revoked or replaced.
