@@ -2,7 +2,7 @@
 
 ## Current Stage
 
-We are at: Stage 7 - GitHub release automation.
+We are at: Stage 10 - v0.1.1 patch release.
 
 Completed so far:
 
@@ -23,6 +23,9 @@ Completed so far:
 - Initialized local git repository and confirmed large local Floor796 files are ignored.
 - Created GitHub repository and pushed `main`.
 - Added `v0.1.0` release notes.
+- Published `floor796-character-mcp@0.1.0` to npm.
+- Added `list_floor796_characters` for paginated catalog discovery.
+- Prepared local `v0.1.1` package metadata and release notes.
 
 ## Stage 1 - Local Prototype
 
@@ -127,7 +130,7 @@ Tasks:
 
 ## Stage 7 - GitHub Release
 
-Status: Partial
+Status: Complete
 
 Tasks:
 
@@ -140,20 +143,40 @@ Tasks:
 - [x] Add repository description.
 - [x] Add release notes.
 - [x] Tag `v0.1.0`.
+- [x] Push `v0.1.0` tag.
 
 ## Stage 8 - npm Release
 
-Status: Not started
+Status: Partial
 
 Tasks:
 
-- [ ] Run `npm pack --dry-run`.
-- [ ] Confirm package contents are small and correct.
+- [x] Run `npm pack --dry-run`.
+- [x] Confirm package contents are small and correct.
 - [ ] Run clean install test.
 - [ ] Run clean MCP startup test.
-- [ ] Publish with `npm publish --access public`.
+- [x] Publish `floor796-character-mcp@0.1.0` with `npm publish --access public`.
 - [ ] Test global install.
-- [ ] Document final user setup flow.
+- [x] Document final user setup flow.
+
+## Stage 10 - v0.1.1 Patch Release
+
+Status: Ready to release
+
+Tasks:
+
+- [x] Add `list_floor796_characters` MCP tool.
+- [x] Add listing helper and typed summary results.
+- [x] Add smoke test coverage for listing pagination.
+- [x] Update README with listing-tool documentation.
+- [x] Bump package metadata to `0.1.1`.
+- [x] Add `v0.1.1` release notes.
+- [x] Verify `npm test` passes.
+- [x] Verify `npm pack --dry-run` passes.
+- [ ] Tag `v0.1.1`.
+- [ ] Push `main` and `v0.1.1` to GitHub.
+- [ ] Publish `floor796-character-mcp@0.1.1` to npm.
+- [ ] Verify npm shows version `0.1.1`.
 
 ## Stage 9 - Future Improvements
 
@@ -171,4 +194,4 @@ Tasks:
 
 ## Immediate Next Step
 
-Run npm release readiness checks, then publish with `npm publish --access public` when ready.
+Tag `v0.1.1`, push `main` and the tag, publish `floor796-character-mcp@0.1.1`, then verify npm reports `0.1.1`.
