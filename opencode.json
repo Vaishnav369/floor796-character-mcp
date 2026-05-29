@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "floor796-character-mcp": {
+      "type": "local",
+      "command": ["floor796-character-mcp"],
+      "enabled": true,
+      "environment": {
+        "FLOOR796_ASSETS_DIR": "V:\\Antgravity\\aksomanic\\assets"
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 ## Current Stage
 
-We are at: Stage 11 - npm account security follow-up.
+We are at: Stage 12 - OpenCode MCP integration.
 
 Completed so far:
 
@@ -28,6 +28,8 @@ Completed so far:
 - Prepared local `v0.1.1` package metadata and release notes.
 - Tagged `v0.1.1` and pushed `main` plus the tag to GitHub.
 - Published `floor796-character-mcp@0.1.1` to npm and verified the registry version.
+- Tested MCP server with real JSON-RPC messages — 7 tools registered correctly.
+- Added `opencode.json` to project root for OpenCode MCP integration.
 
 ## Stage 1 - Local Prototype
 
@@ -197,7 +199,7 @@ Tasks:
 
 ## Stage 11 - npm Account Security Follow-up
 
-Status: Waiting on account owner
+Status: Pending private confirmation
 
 Tasks:
 
@@ -206,6 +208,17 @@ Tasks:
 - [ ] Confirm current private npm recovery codes are stored securely and all exposed codes are revoked or replaced.
 - [ ] After confirmation, update this todo list and continue with Stage 9 future improvements.
 
+Note: multiple recovery codes were pasted in this session. Regenerate them in npm account security settings privately.
+
+## Stage 12 - OpenCode MCP Integration
+
+Status: Complete
+
+Tasks:
+
+- [x] Verify MCP server starts correctly with 7 tools.
+- [x] Create `opencode.json` in project root.
+
 ## Immediate Next Step
 
-Regenerate npm recovery codes once more in npm account security settings, store them privately, and do not paste them into chat.
+Choose a Stage 9 future improvement and start implementing it. npm recovery code security still needs private confirmation and regeneration.
