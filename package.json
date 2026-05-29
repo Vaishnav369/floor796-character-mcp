@@ -1,0 +1,55 @@
+{
+  "name": "floor796-character-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for extracting reusable Floor796 character and animation kits.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Vaishnav",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aksomanic/floor796-character-mcp.git"
+  },
+  "homepage": "https://github.com/aksomanic/floor796-character-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/aksomanic/floor796-character-mcp/issues"
+  },
+  "keywords": [
+    "floor796",
+    "mcp",
+    "model-context-protocol",
+    "characters",
+    "animation",
+    "sprites",
+    "asset-extraction"
+  ],
+  "files": [
+    "build/",
+    "src/",
+    "scripts/",
+    "README.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "floor796-character-mcp": "build/src/index.js",
+    "floor796-character-mcp-extract": "build/scripts/extract.js"
+  },
+  "scripts": {
+    "extract": "tsx scripts/extract.ts",
+    "build": "tsc",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "start": "node build/src/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
