@@ -201,10 +201,11 @@ Status: Waiting on account owner
 
 Tasks:
 
-- [ ] Regenerate npm recovery codes because one recovery code was pasted into this session and used during publish.
-- [ ] Confirm old npm recovery codes are revoked or replaced.
+- [x] Regenerate npm recovery codes because one recovery code was pasted into this session and used during publish.
+- [ ] Regenerate npm recovery codes again privately because the replacement codes were also pasted into this session.
+- [ ] Confirm current private npm recovery codes are stored securely and all exposed codes are revoked or replaced.
 - [ ] After confirmation, update this todo list and continue with Stage 9 future improvements.
 
 ## Immediate Next Step
 
-Regenerate npm recovery codes in the npm account security settings, then confirm the old codes are revoked or replaced.
+Regenerate npm recovery codes once more in npm account security settings, store them privately, and do not paste them into chat.
