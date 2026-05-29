@@ -22,6 +22,7 @@ Completed so far:
 - Added GitHub Actions CI for install, test, and package dry-run.
 - Initialized local git repository and confirmed large local Floor796 files are ignored.
 - Created GitHub repository and pushed `main`.
+- Added `v0.1.0` release notes.
 
 ## Stage 1 - Local Prototype
 
@@ -137,8 +138,8 @@ Tasks:
 - [x] Add GitHub Actions workflow.
 - [x] Push to GitHub.
 - [x] Add repository description.
-- [ ] Add release notes.
-- [ ] Tag `v0.1.0`.
+- [x] Add release notes.
+- [x] Tag `v0.1.0`.
 
 ## Stage 8 - npm Release
 
@@ -170,4 +171,4 @@ Tasks:
 
 ## Immediate Next Step
 
-Add release notes, then tag `v0.1.0` when ready.
+Run npm release readiness checks, then publish with `npm publish --access public` when ready.
