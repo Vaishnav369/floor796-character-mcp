@@ -26,7 +26,7 @@ FLOOR796_ASSETS_DIR=./floor796-assets floor796-character-mcp
 ### From source
 
 ```bash
-git clone https://github.com/aksomanic/floor796-character-mcp.git
+git clone https://github.com/Vaishnav369/floor796-character-mcp.git
 cd floor796-character-mcp
 npm install
 npm run extract
